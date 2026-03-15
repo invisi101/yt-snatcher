@@ -6,7 +6,7 @@ import subprocess
 from pathlib import Path
 from PyQt5 import QtWidgets, QtCore, QtGui
 
-SAVE_DIR = str(Path.home() / "Music" / "ytdlp")
+SAVE_DIR = str(Path.home() / "Downloads" / "ytdlp")
 
 OUTPUT_TEMPLATES = [
     ("Default (Title)", "%(title)s.%(ext)s"),
@@ -410,7 +410,8 @@ class YTDLPWorker(QtCore.QThread):
             cmd.extend(["--embed-metadata", "--embed-thumbnail"])
         else:
             # --- Audio ---
-            cmd.extend(["-x", "--audio-format", opts.get("audio_format", "mp3")])
+            cmd.extend(["-x", "--audio-format", opts.get("audio_format", "mp3"),
+                        "--no-keep-video"])
             quality = opts.get("audio_quality", "best")
             qmap = {
                 "best": "0", "320K": "320K", "256K": "256K",
@@ -773,6 +774,10 @@ class MainWindow(QtWidgets.QWidget):
             opts_lay.addWidget(w)
         opts_lay.addWidget(self.quick_embed_chapters)
         opts_lay.addWidget(self.quick_remove_sponsors)
+        self.no_playlist = QtWidgets.QCheckBox(
+            "Single video only (no playlist)"
+        )
+        opts_lay.addWidget(self.no_playlist)
 
         content.addWidget(opts_card)
 
@@ -903,10 +908,6 @@ class MainWindow(QtWidgets.QWidget):
 
         # -- PLAYLIST --
         pl_card, pll = self._make_card("PLAYLIST")
-        self.no_playlist = QtWidgets.QCheckBox(
-            "Single video only (no playlist)"
-        )
-        pll.addWidget(self.no_playlist)
 
         pi = QtWidgets.QHBoxLayout()
         pi.addWidget(QtWidgets.QLabel("Items:"))
