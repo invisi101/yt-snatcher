@@ -28,25 +28,29 @@ QLabel {
     color: #e0e0ff;
 }
 
-QLabel#brandLabel {
+QLabel#brandLarge, QLabel#brandSmall {
     color: #f472b6;
+}
+
+QFrame#menuBar {
+    background: transparent;
 }
 
 QLabel#subtitleLabel {
     color: rgba(196, 196, 240, 0.5);
-    font-size: 24px;
+    font-size: 18px;
 }
 
 QLabel#sectionLabel {
     color: #f472b6;
     font-weight: 600;
-    font-size: 26px;
+    font-size: 18px;
     letter-spacing: 0.5px;
 }
 
 QLabel#statusLabel {
     color: #a5b4fc;
-    font-size: 26px;
+    font-size: 18px;
 }
 
 /* === Line Edit === */
@@ -55,8 +59,8 @@ QLineEdit {
     border: 1px solid #2d2d5e;
     border-radius: 8px;
     color: #e0e0ff;
-    padding: 10px 14px;
-    font-size: 28px;
+    padding: 8px 12px;
+    font-size: 18px;
     selection-background-color: #818cf8;
 }
 
@@ -71,14 +75,14 @@ QLineEdit::placeholder {
 /* === Checkboxes === */
 QCheckBox {
     color: #c4c4f0;
-    spacing: 8px;
-    font-size: 26px;
+    spacing: 6px;
+    font-size: 18px;
 }
 
 QCheckBox::indicator {
-    width: 28px;
-    height: 28px;
-    border-radius: 6px;
+    width: 22px;
+    height: 22px;
+    border-radius: 5px;
     border: 2px solid #2d2d5e;
     background-color: #16213e;
 }
@@ -99,9 +103,9 @@ QComboBox {
     border: 1px solid #2d2d5e;
     border-radius: 8px;
     color: #e0e0ff;
-    padding: 8px 14px;
-    font-size: 26px;
-    min-width: 100px;
+    padding: 6px 12px;
+    font-size: 18px;
+    min-width: 90px;
 }
 
 QComboBox:focus, QComboBox:hover {
@@ -110,7 +114,7 @@ QComboBox:focus, QComboBox:hover {
 
 QComboBox::drop-down {
     border: none;
-    padding-right: 10px;
+    padding-right: 8px;
 }
 
 QComboBox::down-arrow {
@@ -136,8 +140,8 @@ QSpinBox {
     border: 1px solid #2d2d5e;
     border-radius: 8px;
     color: #e0e0ff;
-    padding: 8px 14px;
-    font-size: 26px;
+    padding: 6px 12px;
+    font-size: 18px;
 }
 
 QSpinBox:focus, QSpinBox:hover {
@@ -147,7 +151,7 @@ QSpinBox:focus, QSpinBox:hover {
 QSpinBox::up-button, QSpinBox::down-button {
     background-color: #2d2d5e;
     border: none;
-    width: 20px;
+    width: 18px;
 }
 
 QSpinBox::up-arrow {
@@ -196,19 +200,19 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 QProgressBar {
     background-color: #1a1a2e;
     border: 1px solid #2d2d5e;
-    border-radius: 11px;
-    min-height: 22px;
-    max-height: 22px;
+    border-radius: 10px;
+    min-height: 20px;
+    max-height: 20px;
     text-align: center;
     color: #e0e0ff;
     font-weight: bold;
-    font-size: 22px;
+    font-size: 16px;
 }
 
 QProgressBar::chunk {
     background: qlineargradient(x1:0, x2:1,
         stop:0 #34d399, stop:0.5 #06b6d4, stop:1 #818cf8);
-    border-radius: 10px;
+    border-radius: 9px;
 }
 
 /* === Download Button === */
@@ -218,8 +222,8 @@ QPushButton#downloadBtn {
     color: #ffffff;
     border: none;
     border-radius: 8px;
-    padding: 10px 28px;
-    font-size: 28px;
+    padding: 10px 26px;
+    font-size: 18px;
     font-weight: 600;
 }
 
@@ -244,8 +248,8 @@ QPushButton#cancelBtn {
     color: #f472b6;
     border: 1px solid rgba(244, 114, 182, 0.3);
     border-radius: 8px;
-    padding: 10px 24px;
-    font-size: 28px;
+    padding: 10px 22px;
+    font-size: 18px;
     font-weight: 500;
 }
 
@@ -260,8 +264,8 @@ QPushButton#closeBtn {
     color: #c4c4f0;
     border: 1px solid rgba(129, 140, 248, 0.3);
     border-radius: 8px;
-    padding: 10px 24px;
-    font-size: 28px;
+    padding: 10px 22px;
+    font-size: 18px;
     font-weight: 500;
 }
 
@@ -276,7 +280,7 @@ QPushButton#backBtn {
     background-color: transparent;
     color: #818cf8;
     border: none;
-    font-size: 28px;
+    font-size: 18px;
     font-weight: 500;
     padding: 4px 8px;
 }
@@ -291,8 +295,8 @@ QPushButton#optionsBtn {
     color: #06b6d4;
     border: 1px solid rgba(6, 182, 212, 0.3);
     border-radius: 8px;
-    padding: 8px 20px;
-    font-size: 26px;
+    padding: 8px 18px;
+    font-size: 18px;
     font-weight: 500;
 }
 
@@ -540,23 +544,23 @@ class ModeCard(QtWidgets.QFrame):
         super().__init__()
         self.setObjectName("modeCard")
         self.setCursor(QtCore.Qt.PointingHandCursor)
-        self.setFixedSize(280, 200)
+        self.setFixedSize(240, 180)
 
         lay = QtWidgets.QVBoxLayout(self)
         lay.setAlignment(QtCore.Qt.AlignCenter)
-        lay.setSpacing(8)
+        lay.setSpacing(6)
 
         icon = QtWidgets.QLabel(icon_text)
         icon.setAlignment(QtCore.Qt.AlignCenter)
         icon.setStyleSheet(
-            "font-size: 48px; background: transparent; border: none;"
+            "font-size: 42px; background: transparent; border: none;"
         )
         lay.addWidget(icon)
 
         t = QtWidgets.QLabel(title)
         t.setAlignment(QtCore.Qt.AlignCenter)
         t.setStyleSheet(
-            "font-size: 28px; font-weight: bold; color: #e0e0ff;"
+            "font-size: 22px; font-weight: bold; color: #e0e0ff;"
             " background: transparent; border: none;"
         )
         lay.addWidget(t)
@@ -565,7 +569,7 @@ class ModeCard(QtWidgets.QFrame):
         s.setAlignment(QtCore.Qt.AlignCenter)
         s.setWordWrap(True)
         s.setStyleSheet(
-            "font-size: 18px; color: rgba(196, 196, 240, 0.6);"
+            "font-size: 14px; color: rgba(196, 196, 240, 0.6);"
             " background: transparent; border: none;"
         )
         lay.addWidget(s)
@@ -581,7 +585,7 @@ class MainWindow(QtWidgets.QWidget):
         super().__init__()
         self.setObjectName("MainWindow")
         self.setWindowTitle("YT Snatcher")
-        self.setMinimumSize(700, 550)
+        self.setMinimumSize(700, 520)
 
         self.is_video_mode = False
         self.playlist_status = ""
@@ -589,6 +593,7 @@ class MainWindow(QtWidgets.QWidget):
 
         outer = QtWidgets.QVBoxLayout(self)
         outer.setContentsMargins(0, 0, 0, 0)
+        outer.setSpacing(0)
 
         self.stacked = QtWidgets.QStackedWidget()
         outer.addWidget(self.stacked)
@@ -599,21 +604,42 @@ class MainWindow(QtWidgets.QWidget):
 
     # ---- helpers ----
 
-    def _make_branding(self, large=False):
+    def _make_menu_bar(self, large=False, back_target=None):
+        h = 60 if large else 40
+        bar = QtWidgets.QFrame()
+        bar.setObjectName("menuBar")
+        bar.setFixedHeight(h)
+        bar_lay = QtWidgets.QHBoxLayout(bar)
+        bar_lay.setContentsMargins(24, 0, 24, 0)
+        bar_lay.setSpacing(0)
+
         label = QtWidgets.QLabel("YT Snatcher")
-        label.setObjectName("brandLabel")
+        label.setObjectName("brandLarge" if large else "brandSmall")
         font = QtGui.QFont("Vegan Style Personal Use")
-        font.setPixelSize(48 if large else 32)
+        font.setPixelSize(42 if large else 28)
         font.setBold(True)
         label.setFont(font)
-        return label
+        label.setFixedHeight(h)
+        label.setAlignment(QtCore.Qt.AlignVCenter | QtCore.Qt.AlignLeft)
+        bar_lay.addWidget(label)
+
+        bar_lay.addStretch(1)
+
+        if back_target is not None:
+            back = QtWidgets.QPushButton("\u2190 Back")
+            back.setObjectName("backBtn")
+            back.setCursor(QtCore.Qt.PointingHandCursor)
+            back.clicked.connect(back_target)
+            bar_lay.addWidget(back, alignment=QtCore.Qt.AlignVCenter)
+
+        return bar
 
     def _make_card(self, title=None):
         card = QtWidgets.QFrame()
         card.setObjectName("card")
         lay = QtWidgets.QVBoxLayout(card)
-        lay.setContentsMargins(20, 16, 20, 16)
-        lay.setSpacing(12)
+        lay.setContentsMargins(18, 14, 18, 14)
+        lay.setSpacing(10)
         if title:
             lbl = QtWidgets.QLabel(title)
             lbl.setObjectName("sectionLabel")
@@ -625,21 +651,19 @@ class MainWindow(QtWidgets.QWidget):
     def _build_welcome_page(self):
         page = QtWidgets.QWidget()
         lay = QtWidgets.QVBoxLayout(page)
-        lay.setContentsMargins(24, 40, 24, 40)
-        lay.setSpacing(16)
+        lay.setContentsMargins(0, 0, 0, 40)
+        lay.setSpacing(12)
+
+        lay.addWidget(self._make_menu_bar(large=True))
 
         lay.addStretch(1)
-
-        brand = self._make_branding(large=True)
-        brand.setAlignment(QtCore.Qt.AlignCenter)
-        lay.addWidget(brand)
 
         sub = QtWidgets.QLabel("Snatch audio & video from YouTube")
         sub.setObjectName("subtitleLabel")
         sub.setAlignment(QtCore.Qt.AlignCenter)
         lay.addWidget(sub)
 
-        lay.addSpacing(32)
+        lay.addSpacing(28)
 
         cards = QtWidgets.QHBoxLayout()
         cards.setSpacing(24)
@@ -668,19 +692,15 @@ class MainWindow(QtWidgets.QWidget):
     def _build_download_page(self):
         page = QtWidgets.QWidget()
         lay = QtWidgets.QVBoxLayout(page)
-        lay.setContentsMargins(24, 20, 24, 20)
-        lay.setSpacing(12)
+        lay.setContentsMargins(0, 0, 0, 16)
+        lay.setSpacing(10)
 
-        # Header
-        hdr = QtWidgets.QHBoxLayout()
-        back = QtWidgets.QPushButton("\u2190 Back")
-        back.setObjectName("backBtn")
-        back.setCursor(QtCore.Qt.PointingHandCursor)
-        back.clicked.connect(self._go_to_welcome)
-        hdr.addWidget(back)
-        hdr.addStretch(1)
-        hdr.addWidget(self._make_branding())
-        lay.addLayout(hdr)
+        lay.addWidget(self._make_menu_bar(back_target=self._go_to_welcome))
+
+        # Content area with side margins
+        content = QtWidgets.QVBoxLayout()
+        content.setContentsMargins(24, 0, 24, 0)
+        content.setSpacing(10)
 
         # URL card
         url_card, url_lay = self._make_card("URL")
@@ -688,7 +708,7 @@ class MainWindow(QtWidgets.QWidget):
         self.url_input.setPlaceholderText("Paste YouTube URL\u2026")
         self.url_input.setClearButtonEnabled(True)
         url_lay.addWidget(self.url_input)
-        lay.addWidget(url_card)
+        content.addWidget(url_card)
 
         # Format card
         fmt_card, fmt_lay = self._make_card("FORMAT")
@@ -703,7 +723,7 @@ class MainWindow(QtWidgets.QWidget):
             ["mp3", "flac", "opus", "wav", "aac", "m4a", "vorbis"]
         )
         af.addWidget(self.audio_format_combo)
-        af.addSpacing(16)
+        af.addSpacing(14)
         af.addWidget(QtWidgets.QLabel("Quality:"))
         self.audio_quality_combo = QtWidgets.QComboBox()
         self.audio_quality_combo.addItems(
@@ -723,7 +743,7 @@ class MainWindow(QtWidgets.QWidget):
             ["best", "2160p", "1080p", "720p", "480p", "360p"]
         )
         vf.addWidget(self.resolution_combo)
-        vf.addSpacing(16)
+        vf.addSpacing(14)
         vf.addWidget(QtWidgets.QLabel("Container:"))
         self.container_combo = QtWidgets.QComboBox()
         self.container_combo.addItems(["mp4", "mkv", "webm"])
@@ -731,7 +751,7 @@ class MainWindow(QtWidgets.QWidget):
         vf.addStretch(1)
         fmt_lay.addWidget(self.video_format_row)
 
-        lay.addWidget(fmt_card)
+        content.addWidget(fmt_card)
 
         # Quick options card
         opts_card, opts_lay = self._make_card("OPTIONS")
@@ -753,27 +773,27 @@ class MainWindow(QtWidgets.QWidget):
         opts_lay.addWidget(self.quick_embed_chapters)
         opts_lay.addWidget(self.quick_remove_sponsors)
 
-        lay.addWidget(opts_card)
+        content.addWidget(opts_card)
 
         # Advanced options button
         adv = QtWidgets.QPushButton("Advanced Options")
         adv.setObjectName("optionsBtn")
         adv.setCursor(QtCore.Qt.PointingHandCursor)
         adv.clicked.connect(self._go_to_options)
-        lay.addWidget(adv, alignment=QtCore.Qt.AlignLeft)
+        content.addWidget(adv, alignment=QtCore.Qt.AlignLeft)
 
-        lay.addStretch(1)
+        content.addStretch(1)
 
         # Progress
         self.progress_bar = QtWidgets.QProgressBar()
         self.progress_bar.setTextVisible(True)
         self.progress_bar.setFormat("%p%")
-        lay.addWidget(self.progress_bar)
+        content.addWidget(self.progress_bar)
 
         self.status_label = QtWidgets.QLabel("Idle.")
         self.status_label.setObjectName("statusLabel")
         self.status_label.setAlignment(QtCore.Qt.AlignCenter)
-        lay.addWidget(self.status_label)
+        content.addWidget(self.status_label)
 
         # Buttons
         btn_row = QtWidgets.QHBoxLayout()
@@ -800,7 +820,9 @@ class MainWindow(QtWidgets.QWidget):
         btn_row.addWidget(self.close_btn)
 
         btn_row.addStretch(1)
-        lay.addLayout(btn_row)
+        content.addLayout(btn_row)
+
+        lay.addLayout(content)
 
         return page
 
@@ -809,19 +831,12 @@ class MainWindow(QtWidgets.QWidget):
     def _build_options_page(self):
         page = QtWidgets.QWidget()
         lay = QtWidgets.QVBoxLayout(page)
-        lay.setContentsMargins(24, 20, 24, 20)
-        lay.setSpacing(12)
+        lay.setContentsMargins(0, 0, 0, 16)
+        lay.setSpacing(10)
 
-        # Header
-        hdr = QtWidgets.QHBoxLayout()
-        back = QtWidgets.QPushButton("\u2190 Back")
-        back.setObjectName("backBtn")
-        back.setCursor(QtCore.Qt.PointingHandCursor)
-        back.clicked.connect(lambda: self.stacked.setCurrentIndex(1))
-        hdr.addWidget(back)
-        hdr.addStretch(1)
-        hdr.addWidget(self._make_branding())
-        lay.addLayout(hdr)
+        lay.addWidget(self._make_menu_bar(
+            back_target=lambda: self.stacked.setCurrentIndex(1)
+        ))
 
         # Scroll area
         scroll = QtWidgets.QScrollArea()
@@ -830,8 +845,8 @@ class MainWindow(QtWidgets.QWidget):
 
         content = QtWidgets.QWidget()
         cl = QtWidgets.QVBoxLayout(content)
-        cl.setContentsMargins(0, 0, 12, 0)
-        cl.setSpacing(16)
+        cl.setContentsMargins(24, 0, 34, 0)
+        cl.setSpacing(14)
 
         # -- SUBTITLES --
         sub_card, sl = self._make_card("SUBTITLES")
@@ -1143,7 +1158,7 @@ def main():
     app.setStyle("Fusion")
     app.setStyleSheet(NEON_STYLESHEET)
     font = app.font()
-    font.setPointSize(28)
+    font.setPointSize(14)
     app.setFont(font)
     win = MainWindow()
     win.show()
