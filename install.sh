@@ -6,20 +6,34 @@ BIN_DIR="$HOME/.local/bin"
 ICON_DIR="$HOME/.local/share/icons/hicolor/scalable/apps"
 DESKTOP_DIR="$HOME/.local/share/applications"
 
-echo "=== ytdlp-gui installer ==="
+echo "=== YT Snatcher installer ==="
 
-# Install dependencies
+# Detect package manager and install dependencies
+install_deps() {
+    if command -v pacman &>/dev/null; then
+        local deps=()
+        pacman -Qi yt-dlp &>/dev/null || deps+=(yt-dlp)
+        pacman -Qi python-pyqt5 &>/dev/null || deps+=(python-pyqt5)
+        if [ ${#deps[@]} -gt 0 ]; then
+            echo "Installing (pacman): ${deps[*]}"
+            sudo pacman -S --needed --noconfirm "${deps[@]}"
+        fi
+    elif command -v dnf &>/dev/null; then
+        echo "Installing dependencies (dnf)..."
+        sudo dnf install -y yt-dlp python3-qt5
+    elif command -v apt &>/dev/null; then
+        echo "Installing dependencies (apt)..."
+        sudo apt update
+        sudo apt install -y yt-dlp python3-pyqt5
+    else
+        echo "WARNING: Could not detect package manager."
+        echo "Please install manually: yt-dlp, python3 PyQt5"
+        echo "Continuing with file installation..."
+    fi
+}
+
 echo "Checking dependencies..."
-deps=()
-pacman -Qi yt-dlp &>/dev/null || deps+=(yt-dlp)
-pacman -Qi python-pyqt5 &>/dev/null || deps+=(python-pyqt5)
-
-if [ ${#deps[@]} -gt 0 ]; then
-    echo "Installing: ${deps[*]}"
-    sudo pacman -S --needed --noconfirm "${deps[@]}"
-else
-    echo "All dependencies already installed."
-fi
+install_deps
 
 # Install script
 mkdir -p "$BIN_DIR"
@@ -44,4 +58,4 @@ fi
 
 echo ""
 echo "=== Done! ==="
-echo "You can now launch ytdlp-gui from your app menu or run: ytdlp-gui"
+echo "You can now launch YT Snatcher from your app menu or run: ytdlp-gui"

@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
-Name=ytdlp-gui
-Comment=Download audio & video from YouTube
+Name=YT Snatcher
+Comment=Snatch audio & video from YouTube
 Exec=ytdlp-gui
 Icon=ytdlp-gui
 Categories=AudioVideo;Audio;Video;Network;
