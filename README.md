@@ -1,6 +1,6 @@
 # YT Snatcher
 
-![YT Snatcher](icons/yt-snatcher.svg)
+![YT Snatcher](icons/yt-snatcher-logo.svg)
 
 A PyQt5 GUI for downloading audio and video from YouTube using yt-dlp.
 
