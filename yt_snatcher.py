@@ -30,6 +30,8 @@ QLabel {
 
 QLabel#brandLarge, QLabel#brandSmall {
     color: #f472b6;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 QFrame#menuBar {
@@ -605,21 +607,20 @@ class MainWindow(QtWidgets.QWidget):
     # ---- helpers ----
 
     def _make_menu_bar(self, large=False, back_target=None):
-        h = 60 if large else 40
+        h = 80 if large else 40
         bar = QtWidgets.QFrame()
         bar.setObjectName("menuBar")
-        bar.setFixedHeight(h)
+        bar.setMinimumHeight(h)
         bar_lay = QtWidgets.QHBoxLayout(bar)
-        bar_lay.setContentsMargins(24, 0, 24, 0)
+        bar_lay.setContentsMargins(29, 0, 24, 0)
         bar_lay.setSpacing(0)
 
         label = QtWidgets.QLabel("YT Snatcher")
         label.setObjectName("brandLarge" if large else "brandSmall")
         font = QtGui.QFont("Vegan Style Personal Use")
-        font.setPixelSize(42 if large else 28)
+        font.setPixelSize(36 if large else 28)
         font.setBold(True)
         label.setFont(font)
-        label.setFixedHeight(h)
         label.setAlignment(QtCore.Qt.AlignVCenter | QtCore.Qt.AlignLeft)
         bar_lay.addWidget(label)
 
@@ -692,7 +693,7 @@ class MainWindow(QtWidgets.QWidget):
     def _build_download_page(self):
         page = QtWidgets.QWidget()
         lay = QtWidgets.QVBoxLayout(page)
-        lay.setContentsMargins(0, 0, 0, 16)
+        lay.setContentsMargins(0, 12, 0, 16)
         lay.setSpacing(10)
 
         lay.addWidget(self._make_menu_bar(back_target=self._go_to_welcome))
@@ -831,7 +832,7 @@ class MainWindow(QtWidgets.QWidget):
     def _build_options_page(self):
         page = QtWidgets.QWidget()
         lay = QtWidgets.QVBoxLayout(page)
-        lay.setContentsMargins(0, 0, 0, 16)
+        lay.setContentsMargins(0, 12, 0, 16)
         lay.setSpacing(10)
 
         lay.addWidget(self._make_menu_bar(
