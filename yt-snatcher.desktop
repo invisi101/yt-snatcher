@@ -2,7 +2,7 @@
 Type=Application
 Name=YT Snatcher
 Comment=Snatch audio & video from YouTube
-Exec=ytdlp-gui
-Icon=ytdlp-gui
+Exec=yt-snatcher
+Icon=yt-snatcher
 Categories=AudioVideo;Audio;Video;Network;
 StartupNotify=false

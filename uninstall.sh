@@ -3,9 +3,9 @@ set -euo pipefail
 
 echo "=== YT Snatcher uninstaller ==="
 
-rm -f "$HOME/.local/bin/ytdlp-gui"
-rm -f "$HOME/.local/share/icons/hicolor/scalable/apps/ytdlp-gui.svg"
-rm -f "$HOME/.local/share/applications/ytdlp-gui.desktop"
+rm -f "$HOME/.local/bin/yt-snatcher"
+rm -f "$HOME/.local/share/icons/hicolor/scalable/apps/yt-snatcher.svg"
+rm -f "$HOME/.local/share/applications/yt-snatcher.desktop"
 
 if command -v update-desktop-database &>/dev/null; then
     update-desktop-database "$HOME/.local/share/applications" 2>/dev/null || true

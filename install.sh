@@ -37,18 +37,18 @@ install_deps
 
 # Install script
 mkdir -p "$BIN_DIR"
-cp "$SCRIPT_DIR/ytdlp_gui.py" "$BIN_DIR/ytdlp-gui"
-chmod +x "$BIN_DIR/ytdlp-gui"
-echo "Installed ytdlp-gui to $BIN_DIR/"
+cp "$SCRIPT_DIR/yt_snatcher.py" "$BIN_DIR/yt-snatcher"
+chmod +x "$BIN_DIR/yt-snatcher"
+echo "Installed yt-snatcher to $BIN_DIR/"
 
 # Install icon
 mkdir -p "$ICON_DIR"
-cp "$SCRIPT_DIR/icons/ytdlp-gui.svg" "$ICON_DIR/ytdlp-gui.svg"
+cp "$SCRIPT_DIR/icons/yt-snatcher.svg" "$ICON_DIR/yt-snatcher.svg"
 echo "Installed icon to $ICON_DIR/"
 
 # Install desktop file (patch Exec to use full path)
 mkdir -p "$DESKTOP_DIR"
-sed "s|^Exec=ytdlp-gui|Exec=$BIN_DIR/ytdlp-gui|" "$SCRIPT_DIR/ytdlp-gui.desktop" > "$DESKTOP_DIR/ytdlp-gui.desktop"
+sed "s|^Exec=yt-snatcher|Exec=$BIN_DIR/yt-snatcher|" "$SCRIPT_DIR/yt-snatcher.desktop" > "$DESKTOP_DIR/yt-snatcher.desktop"
 echo "Installed desktop entry to $DESKTOP_DIR/"
 
 # Update desktop database
@@ -58,4 +58,4 @@ fi
 
 echo ""
 echo "=== Done! ==="
-echo "You can now launch YT Snatcher from your app menu or run: ytdlp-gui"
+echo "You can now launch YT Snatcher from your app menu or run: yt-snatcher"
